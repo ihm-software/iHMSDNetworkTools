@@ -1,0 +1,618 @@
+
+Description                    : Intel(R) Ethernet Connection (6) I219-LM
+Id                             : {D4C00506-6F05-48CF-A60D-EF56555F30C7}
+IsReceiveOnly                  : False
+Name                           : Ethernet
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::e4d5:4b0a:f6d8:2f99%37
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703271
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Intel(R) Ethernet Connection (6) I219-LM
+Id                             : {D4C00506-6F05-48CF-A60D-EF56555F30C7}
+IsReceiveOnly                  : False
+Name                           : Ethernet
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.47.153
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703265
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Hyper-V Virtual Ethernet Adapter
+Id                             : {DFBA4A7F-DE78-4ED3-95DB-84FA58641E8F}
+IsReceiveOnly                  : False
+Name                           : vEthernet (Default Switch)
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 10000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : False
+WinsServersAddresses           : 
+Address                        : fe80::d0f9:8d1f:7852:153a%30
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 25246
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Hyper-V Virtual Ethernet Adapter
+Id                             : {DFBA4A7F-DE78-4ED3-95DB-84FA58641E8F}
+IsReceiveOnly                  : False
+Name                           : vEthernet (Default Switch)
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 10000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : False
+WinsServersAddresses           : 
+Address                        : 172.21.16.1
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 25246
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 255.255.240.0
+IsDnsEligible                  : True
+IsTransient                    : False
+PrefixLength                   : 20
+PrefixOrigin                   : Manual
+SuffixOrigin                   : Manual
+
+Description                    : Hyper-V Virtual Ethernet Adapter #2
+Id                             : {45F476BA-F4F0-44BA-A5A8-C31066DEB914}
+IsReceiveOnly                  : False
+Name                           : vEthernet (WSL)
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 10000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : False
+WinsServersAddresses           : 
+Address                        : fe80::41df:eb17:c0f1:c84a%95
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 110627
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Hyper-V Virtual Ethernet Adapter #2
+Id                             : {45F476BA-F4F0-44BA-A5A8-C31066DEB914}
+IsReceiveOnly                  : False
+Name                           : vEthernet (WSL)
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 10000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : False
+WinsServersAddresses           : 
+Address                        : 172.25.0.1
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 110627
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 255.255.240.0
+IsDnsEligible                  : True
+IsTransient                    : False
+PrefixLength                   : 20
+PrefixOrigin                   : Manual
+SuffixOrigin                   : Manual
+
+Description                    : Lenovo USB Ethernet
+Id                             : {D0025270-A830-4518-8AB8-9CA7ED401E05}
+IsReceiveOnly                  : False
+Name                           : Ethernet 5
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 1000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 192.168.86.1
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : lan
+GatewayAddresses               : System.Net.NetworkInformation.SystemGatewayIPAddressInformation
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::c8bd:3d1:2aa3:c450%36
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703268
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Lenovo USB Ethernet
+Id                             : {D0025270-A830-4518-8AB8-9CA7ED401E05}
+IsReceiveOnly                  : False
+Name                           : Ethernet 5
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Up
+Speed                          : 1000000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 192.168.86.1
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : lan
+GatewayAddresses               : System.Net.NetworkInformation.SystemGatewayIPAddressInformation
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 192.168.86.47
+AddressPreferredLifetime       : 61136
+AddressValidLifetime           : 61136
+DhcpLeaseLifetime              : 171872
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 255.255.255.0
+IsDnsEligible                  : True
+IsTransient                    : False
+PrefixLength                   : 24
+PrefixOrigin                   : Dhcp
+SuffixOrigin                   : OriginDhcp
+
+Description                    : Microsoft Wi-Fi Direct Virtual Adapter #3
+Id                             : {228F8B59-0C45-440F-B600-74C16DCF8B3D}
+IsReceiveOnly                  : False
+Name                           : Local Area Connection* 3
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::647d:e39d:90e0:a901%6
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703254
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Microsoft Wi-Fi Direct Virtual Adapter #3
+Id                             : {228F8B59-0C45-440F-B600-74C16DCF8B3D}
+IsReceiveOnly                  : False
+Name                           : Local Area Connection* 3
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.169.1
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703247
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Microsoft Wi-Fi Direct Virtual Adapter #4
+Id                             : {67067164-FF95-4431-A1DC-22FD73916224}
+IsReceiveOnly                  : False
+Name                           : Local Area Connection* 4
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::64dd:e84d:ef3:3d3c%18
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703149
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Microsoft Wi-Fi Direct Virtual Adapter #4
+Id                             : {67067164-FF95-4431-A1DC-22FD73916224}
+IsReceiveOnly                  : False
+Name                           : Local Area Connection* 4
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.61.60
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703142
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Generic Mobile Broadband Adapter
+Id                             : {DE010DA3-17AF-4C91-8CB2-DD8FD223C11C}
+IsReceiveOnly                  : False
+Name                           : Cellular
+NetworkInterfaceType           : Wwanpp
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::d421:cbbb:d08f:18c6%41
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703259
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Generic Mobile Broadband Adapter
+Id                             : {DE010DA3-17AF-4C91-8CB2-DD8FD223C11C}
+IsReceiveOnly                  : False
+Name                           : Cellular
+NetworkInterfaceType           : Wwanpp
+OperationalStatus              : Down
+Speed                          : -1
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.24.198
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703253
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Zscaler Network Adapter 1.0.2.0
+Id                             : {E63090F0-22ED-4B61-AE4D-9A988FF250EB}
+IsReceiveOnly                  : False
+Name                           : Ethernet 2
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : 100000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::5c5:d35:3ec1:e43f%43
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 25265
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Zscaler Network Adapter 1.0.2.0
+Id                             : {E63090F0-22ED-4B61-AE4D-9A988FF250EB}
+IsReceiveOnly                  : False
+Name                           : Ethernet 2
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : 100000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.228.63
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 25259
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Intel(R) Wireless-AC 9560 160MHz
+Id                             : {817C79A0-40EB-4FD8-825C-C210CEE720A9}
+IsReceiveOnly                  : False
+Name                           : Wi-Fi
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : 866700000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : lan
+GatewayAddresses               : System.Net.NetworkInformation.SystemGatewayIPAddressInformation
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::ed92:cfff:fda:9760%21
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703258
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Intel(R) Wireless-AC 9560 160MHz
+Id                             : {817C79A0-40EB-4FD8-825C-C210CEE720A9}
+IsReceiveOnly                  : False
+Name                           : Wi-Fi
+NetworkInterfaceType           : Wireless80211
+OperationalStatus              : Down
+Speed                          : 866700000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : 192.168.86.1
+DnsSuffix                      : lan
+GatewayAddresses               : System.Net.NetworkInformation.SystemGatewayIPAddressInformation
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 192.168.86.104
+AddressPreferredLifetime       : 61136
+AddressValidLifetime           : 61136
+DhcpLeaseLifetime              : 171879
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 255.255.255.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 24
+PrefixOrigin                   : Dhcp
+SuffixOrigin                   : OriginDhcp
+
+Description                    : Bluetooth Device (Personal Area Network)
+Id                             : {FECE29CD-ED82-4107-A328-215A725F6E2C}
+IsReceiveOnly                  : False
+Name                           : Bluetooth Network Connection
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : 3000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : fe80::1c60:7e8:c0b9:108a%47
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703267
+DuplicateAddressDetectionState : Deprecated
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 64
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Bluetooth Device (Personal Area Network)
+Id                             : {FECE29CD-ED82-4107-A328-215A725F6E2C}
+IsReceiveOnly                  : False
+Name                           : Bluetooth Network Connection
+NetworkInterfaceType           : Ethernet
+OperationalStatus              : Down
+Speed                          : 3000000
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 169.254.16.138
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703261
+DuplicateAddressDetectionState : Tentative
+IPv4Mask                       : 255.255.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 16
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : LinkLayerAddress
+
+Description                    : Software Loopback Interface 1
+Id                             : {D45D6B56-F09B-11E9-AA57-806E6F6E6963}
+IsReceiveOnly                  : False
+Name                           : Loopback Pseudo-Interface 1
+NetworkInterfaceType           : Loopback
+OperationalStatus              : Up
+Speed                          : 1073741824
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : ::1
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703280
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 0.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 128
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : WellKnown
+
+Description                    : Software Loopback Interface 1
+Id                             : {D45D6B56-F09B-11E9-AA57-806E6F6E6963}
+IsReceiveOnly                  : False
+Name                           : Loopback Pseudo-Interface 1
+NetworkInterfaceType           : Loopback
+OperationalStatus              : Up
+Speed                          : 1073741824
+SupportsMulticast              : True
+AnycastAddresses               : 
+DhcpServerAddresses            : 
+DnsAddresses                   : {fec0:0:0:ffff::1%1, fec0:0:0:ffff::2%1, fec0:0:0:ffff::3%1}
+DnsSuffix                      : 
+GatewayAddresses               : 
+IsDnsEnabled                   : False
+IsDynamicDnsEnabled            : True
+WinsServersAddresses           : 
+Address                        : 127.0.0.1
+AddressPreferredLifetime       : 4294967295
+AddressValidLifetime           : 4294967295
+DhcpLeaseLifetime              : 703280
+DuplicateAddressDetectionState : Preferred
+IPv4Mask                       : 255.0.0.0
+IsDnsEligible                  : False
+IsTransient                    : False
+PrefixLength                   : 8
+PrefixOrigin                   : WellKnown
+SuffixOrigin                   : WellKnown
+
+
