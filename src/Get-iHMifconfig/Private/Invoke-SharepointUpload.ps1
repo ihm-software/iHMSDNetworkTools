@@ -16,10 +16,10 @@ function Invoke-SharepointUpload {
                 #note to test this against other version specific attributes for performance tuning later
                 switch($PSVersionTable.PSEdition){
                     "core" {
-                        invoke-webrequest -Uri $302CheckUri -MaximumRedirection 0 -SkipHttpErrorCheck -ErrorAction SilentlyContinue
+                        Invoke-WebRequest -Uri $302CheckUri -MaximumRedirection 0 -SkipHttpErrorCheck -ErrorAction SilentlyContinue
                     }
                     "desktop" {
-                        invoke-webrequest -Uri $302CheckUri -MaximumRedirection 0 -ErrorAction SilentlyContinue
+                        Invoke-WebRequest -Uri $302CheckUri -MaximumRedirection 0 -ErrorAction SilentlyContinue
                     }
                 }
                 switch($302Check.StatusCode){
@@ -37,8 +37,8 @@ function Invoke-SharepointUpload {
                                 [system.uri]"api"           =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api"
                                 [system.uri]"apicontext"    =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/contextinfo"
                                 [system.uri]"apiweb"        =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/web"
-                                [system.uri]"sharepointid"  =  if($redirect.OriginalString -match "(id=.+)"){($redirect.OriginalString).Split("id=")[1].split("&")[0]}
-                                "filename"                  =   Split-path $Filepath -Leaf
+                                [system.uri]"sharepointid"  =   if($redirect.OriginalString -match "(id=.+)"){($redirect.OriginalString).Split("id=")[1].split("&")[0]}
+                                "filename"                  =   Split-Path $Filepath -Leaf
                             }
                             #If we didn't get the sharepoint id need to check next hop
                             [system.uri]$302CheckUri = $($302Check.headers.location)

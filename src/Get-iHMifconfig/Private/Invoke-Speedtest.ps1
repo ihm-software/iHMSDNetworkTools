@@ -24,10 +24,10 @@ function Invoke-Speedtest {
             #Hashtable containing results
             $SpeedResults.add(
                 [PSCustomObject]@{
-                "Test Site"             = [string]$url.split(":8080/speedtest/")[0]
-                "Speed(Mb)"             = [string]$downloadSpeed
-                "Size(MiB)"             = [string]$downloadSize
-                "Download time(sec)"    = [string]$downloadTimeSec
+                    "Test Site"             = [string]$url.split(":8080/speedtest/")[0]
+                    "Speed(Mb)"             = [string]$downloadSpeed
+                    "Size(MiB)"             = [string]$downloadSize
+                    "Download time(sec)"    = [string]$downloadTimeSec
                 }
             )
         }
