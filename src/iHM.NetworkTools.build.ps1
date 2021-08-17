@@ -62,7 +62,7 @@ Add-BuildTask HelpLocal Clean, ImportModuleManifest, CreateHelpStart
 
 # Pre-build variables to be used by other portions of the script
 Enter-Build {
-    $script:ModuleName = (Split-Path -Path $BuildFile -Leaf).Split('.')[0]
+    $script:ModuleName = (Split-Path -Path $BuildFile -Leaf).Split(".build.ps1")[0]
 
     # Identify other required paths
     $script:ModuleSourcePath = Join-Path -Path $BuildRoot -ChildPath $script:ModuleName
