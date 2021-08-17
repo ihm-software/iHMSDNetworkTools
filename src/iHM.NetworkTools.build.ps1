@@ -38,8 +38,8 @@
 #>
 
 #Include: Settings
-$ModuleName = (Split-Path -Path $BuildFile -Leaf).Split('.')[0]
-. "./$($ModuleName).Settings.ps1"
+$ModuleName = (Split-Path -Path $BuildFile -leaf).split(".build.ps1")[0]
+. "./$ModuleName.Settings.ps1"
 
 function Test-ManifestBool ($Path) {
     Get-ChildItem $Path | Test-ModuleManifest -ErrorAction SilentlyContinue | Out-Null; $?
