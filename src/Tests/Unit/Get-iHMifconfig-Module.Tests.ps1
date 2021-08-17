@@ -11,7 +11,7 @@ Describe 'Module Tests' -Tag Unit {
     Context "Module Tests" {
         $script:manifestEval = $null
         It 'Passes Test-ModuleManifest' {
-            { $script:manifestEval = Test-ModuleManifest -Path $PathToManifest } | Should -Not -Throw
+            { $script:manifestEval = Test-ModuleManifest -Path $PathToManifest } | Should -Not -throw
             $? | Should -BeTrue
         } #manifestTest
         It 'root module Get-iHMifconfig.psm1 should exist' {
@@ -35,7 +35,7 @@ Describe 'Module Tests' -Tag Unit {
             $script:manifestEval.Version -as [Version] | Should -Not -BeNullOrEmpty
         } #version
         It 'should have a valid guid in the manifest' {
-            { [guid]::Parse($script:manifestEval.Guid) } | Should -Not -Throw
+            { [guid]::Parse($script:manifestEval.Guid) } | Should -Not -throw
         } #guid
         It 'should not have any spaces in the tags' {
             foreach ($tag in $script:manifestEval.Tags) {

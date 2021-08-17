@@ -23,7 +23,7 @@ function Invoke-SharepointUpload {
                     }
                 }
                 switch($302Check.StatusCode){
-                    "200"   {Throw "Could not find Sharepoint Library ID"}
+                    "200"   {throw "Could not find Sharepoint Library ID"}
                     default {
                         #If we get anything except a 200, build a hashtable of header values transformed into sharepoint uri's
                         if ($302Check.headers.location -match "^http"){
@@ -46,7 +46,7 @@ function Invoke-SharepointUpload {
                     }
                 }
             }
-            Else {Throw "Could not find Sharepoint Library ID"}
+            Else {throw "Could not find Sharepoint Library ID"}
         }
         #keep doing all that stuff until we get a sharepoint id
         until ($null -ne $SPOUrls.sharepointid)
