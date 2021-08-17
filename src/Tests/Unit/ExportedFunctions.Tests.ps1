@@ -13,7 +13,7 @@ Import-Module $PathToManifest -Force
 
 BeforeAll {
     Set-Location -Path $PSScriptRoot
-    $ModuleName = 'Get-iHMifconfig'
+    $ModuleName = 'iHM.Net'
     $PathToManifest = [System.IO.Path]::Combine('..', '..', $ModuleName, "$ModuleName.psd1")
     $manifestContent = Test-ModuleManifest -Path $PathToManifest
     $moduleExported = Get-Command -Module $ModuleName | Select-Object -ExpandProperty Name
