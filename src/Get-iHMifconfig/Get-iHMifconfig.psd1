@@ -33,7 +33,7 @@ Copyright = '(c) Jason Diaz. All rights reserved.'
 Description = 'This module gathers network information and sends to the iHeartmedia Network team for troubleshooting.'
 
 # Minimum version of the PowerShell engine required by this module
-# PowerShellVersion = ''
+# PowerShellVersion = '5'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
