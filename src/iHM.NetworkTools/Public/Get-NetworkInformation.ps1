@@ -1,4 +1,4 @@
-function Get-NetworkInfo {
+function Get-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Mandatory=$False)][ValidateSet("Up","Down")]
@@ -67,3 +67,5 @@ function Get-NetworkInfo {
         return $PSObjectCollection
     }
 }
+New-Alias -Name ifconfig -Value Get-NetworkInformation
+New-Alias -Name Get-IPConfig -Value Get-NetworkInformation

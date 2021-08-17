@@ -43,13 +43,13 @@
 
     .EXAMPLE
         Upload network information to https://bit.ly/ihmnetwizupload 
-        Get-iHMifconfig -AnonURL "https://bit.ly/ihmnetwizupload"
+        Send-NetworkInfo -AnonURL "https://bit.ly/ihmnetwizupload"
 
     .EXAMPLE
         Upload network information with custom file name to https://bit.ly/ihmnetwizupload 
-        Get-iHMifconfig -Filename "Myfile.txt" -AnonURL "https://bit.ly/ihmnetwizupload"
+        Send-NetworkInfo -Filename "Myfile.txt" -AnonURL "https://bit.ly/ihmnetwizupload"
 #>
-function Get-iHMifconfig {
+function Send-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter a custom name for the output file.")]
@@ -67,7 +67,7 @@ function Get-iHMifconfig {
     )
     begin {
         $Now = Get-Date -Format yyyy-M-d_hh.mm.tt
-        $ScriptName = "Get-IHMifconfig"
+        $ScriptName = "Send-NetworkInfo"
         $ScriptVersion = "1.0.2"
         $Global:ErrorActionPreference = "Stop" 
         #Initiate Functions
@@ -99,7 +99,7 @@ function Get-iHMifconfig {
             Add-LogEntry -Logpath $LogFile -Message "[NFO]    Beginning Speedtest"
             Invoke-Speedtest -US -TestCount $TestCount -Size $Size | Out-File -FilePath $Filepath -Append
             Add-LogEntry -Logpath $LogFile -Message "[NFO]    Gathering network information"
-            Get-NetworkInfo | Out-File -FilePath $Filepath -Append
+            Get-NetworkInformation | Out-File -FilePath $Filepath -Append
             Add-LogEntry -Logpath $LogFile -Message "[NFO]    Complete"
         }
         catch{
