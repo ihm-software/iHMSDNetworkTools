@@ -25,7 +25,7 @@ jobs:
       run: ./actions_bootstrap.ps1
     - name: Test and Build
       shell: pwsh
-      run: Invoke-Build -File .\src\Get-iHMifconfig.build.ps1
+      run: Invoke-Build -File .\src\iHM.NetworkTools.build.ps1
     - name: Upload pester results
       uses: actions/upload-artifact@v2
       with:

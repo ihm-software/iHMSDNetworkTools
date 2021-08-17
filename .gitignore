@@ -1,6 +1,8 @@
+Logs
 Archive
 Artifacts
 cov.xml
+.logs?
 # OS generated files #
 ######################
 .DS_Store
