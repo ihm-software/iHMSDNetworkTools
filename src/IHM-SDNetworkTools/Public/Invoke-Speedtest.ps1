@@ -12,8 +12,9 @@
         $SpeedResults = [System.Collections.ArrayList]@()
         Function downloadSpeed($strUploadUrl) {
             #Transform the server urls needed
+            $Filesize = "$($Size)x$($Size)"
             $topServerUrlSpilt = $strUploadUrl -split 'upload'
-            $url = $topServerUrlSpilt[0] + "random" + "$($Size)" + "x" + "$($Size)" + ".jpg"
+            $url = $topServerUrlSpilt[0] + "random" + "$($Filesize)" + ".jpg"
             #Now download some temp files and calculate speed
             $downloadfile = {Invoke-WebRequest -Uri $url}
             $downloadElaspedTime = (Measure-Command $downloadfile).totalmilliseconds
@@ -29,7 +30,7 @@
                     "Speed(Mb)"          = [string]$downloadSpeed
                     "Size(MiB)"          = [string]$downloadSize
                     "Download time(sec)" = [string]$downloadTimeSec
-                    "Image Size"         = [string]"$Size x $Size"
+                    "Image Size"         = [string]$Filesize
                 }
             )
         }
