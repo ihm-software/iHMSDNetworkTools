@@ -8,6 +8,9 @@ Writes the passed error to a new line at the end of the specified log file
 .PARAMETER LogPath
 Mandatory. Full path of the log file you want to write to. Example: C:\Windows\Temp\Test_Script.log
 
+.PARAMETER LineNumber
+The breakpoint line carried from error
+
 .PARAMETER ErrorDesc
 Mandatory. The description of the error you want to pass (use $_.Exception)
 
@@ -19,22 +22,6 @@ Parameters above
 
 .OUTPUTS
 None
-
-.NOTES
-Version:        1.0
-Author:         Luca Sturlese
-Creation Date:  10/05/12
-Purpose/Change: Initial function development
-
-Version:        1.1
-Author:         Luca Sturlese
-Creation Date:  19/05/12
-Purpose/Change: Added debug mode support. Added -ExitGracefully parameter functionality
-
-Version:        1.2
-Author:         Jason Diaz
-Creation Date:  08/01/2020
-Purpose/Change: Replaced Most\All of Process with Rick.A Function.
 
 .EXAMPLE
 Add-LogError -LogPath "C:\Windows\Temp\Test_Script.log" -ErrorDesc $_.Exception -ExitGracefully $True

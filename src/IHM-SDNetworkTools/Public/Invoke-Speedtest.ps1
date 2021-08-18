@@ -1,4 +1,29 @@
-﻿function Invoke-Speedtest {
+﻿<#
+.SYNOPSIS
+measures download from speedtest.net
+
+.DESCRIPTION
+connects and downloads image files from servers to measure download speed
+
+.PARAMETER Worldwide
+Searchs all servers for closest locations. Default is USA only.
+
+.PARAMETER TestCount
+The number of servers to connect to and repeat the test
+
+.PARAMETER Size
+The pixel size^2 of the download image. Bigger = larger download. Default is 1000x1000
+
+.INPUTS
+Parameters above
+
+.OUTPUTS
+None
+
+.EXAMPLE
+Invoke-Speedtest -Testcount 1 -Size 500
+#>
+function Invoke-Speedtest {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Mandatory=$False)]
