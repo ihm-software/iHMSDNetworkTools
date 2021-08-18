@@ -9,10 +9,6 @@
         [int32]$Size="1000"
     )
     begin{
-        $US = $US
-        $Size = $Size
-        If ($Size) {continue}
-        If ($US) {continue}
         $SpeedResults = [System.Collections.ArrayList]@()
         Function downloadSpeed($strUploadUrl) {
             #Transform the server urls needed
@@ -63,7 +59,7 @@
             @([pscustomobject]@{Distance = $d; Country = $Server.country; Sponsor = $Server.sponsor; Url = $Server.url })
         }
         #Now create a list of closest servers to client
-        $Localservers = ($serverinformation | Sort-Object -Property distance)[0..$TestCount]
+        $Localservers = ($serverinformation | Sort-Object -Property distance)[0..($TestCount)]
         ForEach ($lserver in $Localservers) {
             $currenturl = $lserver.url
             downloadSpeed($currenturl) | Out-Null
