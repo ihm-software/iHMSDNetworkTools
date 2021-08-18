@@ -6,7 +6,7 @@ Describe "Add Log Output" {
         $LogFile = "TestDrive:\test_log.txt"
         $LineNumber = "1"
         $Message = "Log Message"
-        Add-LogEntry -LogPath $LogFile -Message $Message -LineNumber $LineNumber
+        Add-LogMessage -LogPath $LogFile -Message $Message -LineNumber $LineNumber
         "TestDrive:\test_log.txt" | Should -FileContentMatch "Log Message"
     }
 

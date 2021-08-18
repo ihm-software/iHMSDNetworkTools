@@ -18,9 +18,9 @@ Used to terminate context after logging error
 The description of the error you want to pass (use $_.Exception)
 
 .EXAMPLE
-Add-LogEntry -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
+Add-LogMessage -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
 #>
-Function Add-LogEntry {
+Function Add-LogMessage {
     [CmdletBinding()]
     param(
         [Parameter()]

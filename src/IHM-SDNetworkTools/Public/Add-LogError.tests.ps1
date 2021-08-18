@@ -1,7 +1,7 @@
 BeforeAll {
     . $PSCommandPath.Replace('.tests.ps1','.ps1')
 }
-Describe "Add Log Output" {
+Describe "Add Log Error" {
     It "Adds Content" {
         $LogFile = "TestDrive:\test_log.txt"
         $LineNumber = "1"

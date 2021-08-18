@@ -90,4 +90,3 @@ function Get-NetworkInformation {
     }
 }
 New-Alias -Name ifconfig -Value Get-NetworkInformation
-New-Alias -Name Get-IPConfig -Value Get-NetworkInformation
