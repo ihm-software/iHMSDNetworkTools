@@ -48,7 +48,7 @@
                 foreach ($ippropsPropName in $ippropsPropertyNames) {
                     $FinalPSObjectMemberCheck = $($FinalPSObject | Get-Member -MemberType NoteProperty).Name
                     if ($FinalPSObjectMemberCheck -notcontains $ippropsPropName -and
-                    $ippropsPropName -ne "UnicastAddresses" -and $ippropsPropName -ne "MulticastAddresses") {
+                        $ippropsPropName -ne "UnicastAddresses" -and $ippropsPropName -ne "MulticastAddresses") {
                         $FinalPSObject | Add-Member -MemberType NoteProperty -Name $ippropsPropName -Value $($ipprops.$ippropsPropName)
                     }
                 }

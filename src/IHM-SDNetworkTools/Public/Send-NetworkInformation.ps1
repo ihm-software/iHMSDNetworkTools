@@ -81,15 +81,15 @@ function Send-NetworkInformation {
         #Starting log as soon as we create path above
         Start-Log -LogPath $LogPath -LogName $LogName -ScriptVersion $ScriptVersion
         #Output file path
-        $Filepath = Join-Path -Path $ScriptPath -Childpath $Filename
+        $Filepath = Join-Path -Path $ScriptPath -ChildPath $Filename
     }
     process{
         try{
-            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Beginning Speedtest"
+            Add-LogMessage -LogPath $LogFile -Message "[NFO]    Beginning Speedtest"
             Invoke-Speedtest | Out-File -FilePath $Filepath -Append
-            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Gathering network information"
+            Add-LogMessage -LogPath $LogFile -Message "[NFO]    Gathering network information"
             Get-NetworkInformation | Out-File -FilePath $Filepath -Append
-            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Complete"
+            Add-LogMessage -LogPath $LogFile -Message "[NFO]    Complete"
         }
         catch{
             Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]: $($PSItem.Exception.Message)" -ExitGracefully $false

@@ -33,12 +33,12 @@
                             While ($redirect -match '%')
                             #Now build uri paths
                             $SPOUrls = [pscustomobject]@{
-                                uploadfile    =   $(Split-Path $Filepath -Leaf)
-                                [system.uri]"site"          =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])"
-                                [system.uri]"api"           =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api"
-                                [system.uri]"apicontext"    =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/contextinfo"
-                                [system.uri]"apiweb"        =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/web"
-                                [system.uri]"sharepointid"  =   if ($redirect.OriginalString -match "(id=.+)"){ $( ( ( ($redirect.OriginalString).Split("id=")[1] ).split("&")[0] ) ) }
+                                uploadfile                 =   $(Split-Path $Filepath -Leaf)
+                                [system.uri]"site"         =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])"
+                                [system.uri]"api"          =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api"
+                                [system.uri]"apicontext"   =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/contextinfo"
+                                [system.uri]"apiweb"       =   "$($redirect.Scheme)://$($redirect.Host)$($redirect.Segments[0])$($redirect.Segments[1])$($redirect.Segments[2])_api/web"
+                                [system.uri]"sharepointid" =   if ($redirect.OriginalString -match "(id=.+)"){ $( ( ( ($redirect.OriginalString).Split("id=")[1] ).split("&")[0] ) ) }
                             }
                             #If we didn't get the sharepoint id need to check next hop
                             [system.uri]$302CheckUri = $($302Check.headers.location)

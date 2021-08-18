@@ -15,7 +15,7 @@
         If (-not $PSBoundParameters.LineNumber) {
             $LineNumber = $MyInvocation.ScriptLineNumber
         }
-        $LogValue = "{0}    Line {1}    {2}" -f (Get-Date -format G), ("{0:d3}" -f $LineNumber), $Message
+        $LogValue = "{0}    Line {1}    {2}" -f (Get-Date -Format G), ("{0:d3}" -f $LineNumber), $Message
         Add-Content -Path $LogPath -Value $LogValue
         If ($PSBoundParameters.Exit -eq $True) {
             Get-PSSession | Remove-PSSession

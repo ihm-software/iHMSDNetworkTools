@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     An Invoke-Build Build file.
 .DESCRIPTION
@@ -38,7 +38,7 @@
 #>
 
 #Include: Settings
-$ModuleName = (Split-Path -Path $BuildFile -leaf).split('.')[0]
+$ModuleName = (Split-Path -Path $BuildFile -Leaf).split('.')[0]
 . "./$ModuleName.Settings.ps1"
 
 function Test-ManifestBool ($Path) {
@@ -431,8 +431,8 @@ Add-BuildTask UpdateCBH -After AssetCopy {
     Get-ChildItem -Path "$script:ArtifactsPath\Public\*.ps1" -File | ForEach-Object {
         $FormattedOutFile = $_.FullName
         Write-Output "      Replacing CBH in file: $($FormattedOutFile)"
-        $UpdatedFile = (Get-Content  $FormattedOutFile -raw) -replace $CBHPattern, $ExternalHelp
-        $UpdatedFile | Out-File -FilePath $FormattedOutFile -force -Encoding:utf8
+        $UpdatedFile = (Get-Content  $FormattedOutFile -Raw) -replace $CBHPattern, $ExternalHelp
+        $UpdatedFile | Out-File -FilePath $FormattedOutFile -Force -Encoding:utf8
     }
 } #UpdateCBH
 

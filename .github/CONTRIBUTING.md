@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to the **Get-iHMifconfig Project**.
+Thanks for your interest in contributing to the **iHM-SDNetworkTools Project**.
 
 Whether it's a bug report, new feature, correction, or additional documentation, your feedback and contributions are appreciated.
 
