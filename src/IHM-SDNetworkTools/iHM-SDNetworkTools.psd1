@@ -98,7 +98,7 @@
             Tags       = @('Windows','Networking','ifconfig','ipconfig','lan','ipaddress')
 
             # A URL to the license for this module.
-            # LicenseUri = 'blob/master/LICENSE'
+            LicenseUri = 'https://github.com/ihm-software/iHM-SDNetworkTools/blob/main/LICENSE'
 
             # A URL to the main website for this project.
             ProjectUri = 'https://github.com/ihm-software/iHM-SDNetworkTools'

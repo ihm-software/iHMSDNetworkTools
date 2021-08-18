@@ -231,7 +231,7 @@ Add-BuildTask Test {
 
     Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
     Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-    Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
+    Import-Module -Name Pester -ErrorAction 'Stop'
 
     $codeCovPath = "$script:ArtifactsPath\ccReport\"
     $testOutPutPath = "$script:ArtifactsPath\testOutput\"
@@ -307,7 +307,7 @@ Add-BuildTask DevCC {
     Write-Build White '      Generating code coverage report at root...'
     Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
     Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-    Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
+    Import-Module -Name Pester -ErrorAction 'Stop'
 
     $pesterConfiguration = [PesterConfiguration]::new()
     $pesterConfiguration.run.Path = 'Tests\Unit'
@@ -325,7 +325,7 @@ Add-BuildTask DevCC {
 Add-BuildTask CreateHelpStart {
     Write-Build White '      Performing all help related actions.'
 
-    Write-Build Gray '           Importing platyPS ...'
+    Write-Build Gray '           Importing platyPS latest...'
     Import-Module platyPS -Force -ErrorAction:SilentlyContinue
     Write-Build Gray '           ...platyPS imported successfully.'
 } #CreateHelpStart
@@ -496,7 +496,7 @@ Add-BuildTask InfraTest {
     if (Test-Path -Path $script:InfraTestsPath) {
         Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
         Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-        Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
+        Import-Module -Name Pester -ErrorAction 'Stop'
 
         Write-Build White "      Performing Pester Infrastructure Tests in $($invokePesterParams.path)"
 
