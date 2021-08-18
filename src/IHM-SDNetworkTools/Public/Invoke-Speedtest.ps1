@@ -10,9 +10,9 @@
     )
     begin{
         $SpeedResults = [System.Collections.ArrayList]@()
+        $Filesize = "$($Size)x$($Size)"
         Function downloadSpeed($strUploadUrl) {
             #Transform the server urls needed
-            $Filesize = "$($Size)x$($Size)"
             $topServerUrlSpilt = $strUploadUrl -split 'upload'
             $url = $topServerUrlSpilt[0] + "random" + "$($Filesize)" + ".jpg"
             #Now download some temp files and calculate speed
