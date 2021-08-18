@@ -1,5 +1,6 @@
-function Get-NetworkInformation {
+﻿function Get-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
+    [OutputType('System.Object[]')]
     param (
         [Parameter(Mandatory=$False)][ValidateSet("Up","Down")]
         [string]$InterfaceStatus,
@@ -37,7 +38,6 @@ function Get-NetworkInformation {
             }
             foreach ($ip in $UnicastAddressesToExplore) {
                 $FinalPSObject = [pscustomobject]@{}
-                
                 $adapterPropertyNames = $($adapter | Get-Member -MemberType Property).Name
                 foreach ($adapterPropName in $adapterPropertyNames) {
                     $FinalPSObjectMemberCheck = $($FinalPSObject | Get-Member -MemberType NoteProperty).Name

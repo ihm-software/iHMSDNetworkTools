@@ -1,5 +1,5 @@
-Function Stop-Log {
-    [CmdletBinding()]
+﻿Function Stop-Log {
+    [CmdletBinding(SupportsShouldProcess)]
     Param ([Parameter(Mandatory = $true)]$LogPath, [Parameter(Mandatory = $false)]$NoExit)
     Process {
         Add-Content -Path $LogPath -Value ""
@@ -14,6 +14,6 @@ Function Stop-Log {
         #Exit calling script if NoExit has not been specified or is set to False
         If (!($NoExit) -or ($NoExit -eq $False)) {
             Exit
-        }    
+        }
     }
 }

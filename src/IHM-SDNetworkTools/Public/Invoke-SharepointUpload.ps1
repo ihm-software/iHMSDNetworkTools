@@ -1,4 +1,4 @@
-function Invoke-SharepointUpload {
+﻿function Invoke-SharepointUpload {
     [cmdletbinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Mandatory=$true)][ValidatePattern({^https://*.$})]
@@ -11,7 +11,7 @@ function Invoke-SharepointUpload {
         [system.uri]$302CheckUri = [system.uri]$AnonURL
         do {
             If ($302CheckUri -match "^http"){
-                $302Check = 
+                $302Check =
                 #powershell core and legacy windows powershell have slightly different error ignore commands (a 302 is an error)
                 #note to test this against other version specific attributes for performance tuning later
                 switch($PSVersionTable.PSEdition){
@@ -65,7 +65,7 @@ function Invoke-SharepointUpload {
         #Building the upload path below using the digest header
         $UploadURI = "$($SPOURLS.apiweb)/GetFolderByServerRelativePath(DecodedUrl='$($SPOUrls.sharepointid)')/Files/Add(overwrite=true,Url='$($SPOUrls.uploadfile)')"
     }
-    end {   
+    end {
         #This is the final invoke that uploads the file to the anonymous shared library
         Invoke-WebRequest -Method POST -Uri $UploadURI -ContentType "application/octet-stream" -Headers $headers -InFile $Filepath -WebSession $Session
         return

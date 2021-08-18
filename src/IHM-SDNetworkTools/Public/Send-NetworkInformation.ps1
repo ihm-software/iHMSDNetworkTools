@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
         Network troubleshooting tool
 
@@ -42,11 +42,11 @@
         Purpose/Change: Error traps, remove (most)debug lines, add line comments
 
     .EXAMPLE
-        Upload network information to https://bit.ly/ihmnetwizupload 
+        Upload network information to https://bit.ly/ihmnetwizupload
         Send-NetworkInfo -AnonURL "https://bit.ly/ihmnetwizupload"
 
     .EXAMPLE
-        Upload network information with custom file name to https://bit.ly/ihmnetwizupload 
+        Upload network information with custom file name to https://bit.ly/ihmnetwizupload
         Send-NetworkInfo -Filename "Myfile.txt" -AnonURL "https://bit.ly/ihmnetwizupload"
 #>
 function Send-NetworkInformation {
@@ -57,34 +57,23 @@ function Send-NetworkInformation {
         [String]$Filename = "$($Now)_$([Environment]::MachineName).txt" ,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter the shared upload link")]
         [ValidateNotNullOrEmpty()]
-        [String]$AnonUrl = 'https://bit.ly/ihmnetwizupload',
-        [Parameter(Mandatory=$False)]
-        [switch]$US,
-        [Parameter(Mandatory=$False)]
-        [int32]$TestCount = "5",
-        [Parameter(Mandatory=$False)]
-        [int32]$Size = "1000"
+        [String]$AnonUrl = 'https://bit.ly/ihmnetwizupload'
     )
     begin {
         $Now = Get-Date -Format yyyy-M-d_hh.mm.tt
-        $ScriptName = "Send-NetworkInfo"
+        $ScriptName = "Send-NetworkInformation"
         $ScriptVersion = "1.0.2"
-        $Global:ErrorActionPreference = "Stop" 
+        $Global:ErrorActionPreference = "Stop"
         #Initiate Functions
-        #Import-Module "..\Private\Add-LogEntry.ps1"
-        #Import-Module "..\Private\Add-LogError.ps1"
-        #Import-Module "..\Private\Get-NetworkInfo.ps1"
-        #Import-Module "..\Private\Invoke-SharepointUpload.ps1"
-        #Import-Module "..\Private\Invoke-Speedtest.ps1"
-        #Import-Module "..\Private\Start-Log.ps1"
-        #Import-Module "..\Private\Stop-Log.ps1"
+        
+        
         #Creating logging and file paths
         [string]$ScriptPath =
         If ($PSScriptRoot) { $PSScriptRoot }
         ElseIf ($PSCommandPath) { Split-Path -Parent -Path $PSCommandPath -ErrorAction SilentlyContinue }
         ElseIf ($PWD) { $PWD }
         ElseIf ($MyInvocation.InvocationName) { Split-Path -Parent -Path $MyInvocation.InvocationName -ErrorAction SilentlyContinue }
-        [string]$LogPath = 
+        [string]$LogPath =
         if (Test-Path "$ScriptPath\Logs") { "$ScriptPath\Logs" }
         else { New-Item -ItemType Directory -Path "$ScriptPath\Logs" }
         [string]$LogName = "$($now)_$($ScriptName).log"
@@ -96,11 +85,11 @@ function Send-NetworkInformation {
     }
     process{
         try{
-            Add-LogEntry -Logpath $LogFile -Message "[NFO]    Beginning Speedtest"
-            Invoke-Speedtest -US -TestCount $TestCount -Size $Size | Out-File -FilePath $Filepath -Append
-            Add-LogEntry -Logpath $LogFile -Message "[NFO]    Gathering network information"
+            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Beginning Speedtest"
+            Invoke-Speedtest | Out-File -FilePath $Filepath -Append
+            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Gathering network information"
             Get-NetworkInformation | Out-File -FilePath $Filepath -Append
-            Add-LogEntry -Logpath $LogFile -Message "[NFO]    Complete"
+            Add-LogMessage -Logpath $LogFile -Message "[NFO]    Complete"
         }
         catch{
             Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]: $($PSItem.Exception.Message)" -ExitGracefully $false

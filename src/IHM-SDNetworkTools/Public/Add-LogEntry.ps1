@@ -1,4 +1,4 @@
-Function Add-LogEntry {
+﻿Function Add-LogEntry {
     [CmdletBinding()]
     param(
         [Parameter()]
@@ -18,7 +18,7 @@ Function Add-LogEntry {
         $LogValue = "{0}    Line {1}    {2}" -f (Get-Date -format G), ("{0:d3}" -f $LineNumber), $Message
         Add-Content -Path $LogPath -Value $LogValue
         If ($PSBoundParameters.Exit -eq $True) {
-            Get-PSSession | Remove-PSSession  
+            Get-PSSession | Remove-PSSession
             Exit
         }
     }

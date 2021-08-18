@@ -1,5 +1,5 @@
 Function Start-Log {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     Param ([Parameter(Mandatory = $true)]$LogPath, [Parameter(Mandatory = $true)]$LogName, [Parameter(Mandatory = $true)]$ScriptVersion)
     Process {
         $sFullPath = $LogPath + "\" + $LogName

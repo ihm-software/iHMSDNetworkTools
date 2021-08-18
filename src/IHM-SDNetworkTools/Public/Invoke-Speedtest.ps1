@@ -1,22 +1,27 @@
-function Invoke-Speedtest {
+﻿function Invoke-Speedtest {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Mandatory=$False)]
-        [switch]$US,
+        [switch]$Worldwide,
         [Parameter(Mandatory=$True)]
-        [int32]$TestCount,
+        [int32]$TestCount="5",
         [Parameter(Mandatory=$True)]
-        [int32]$Size
+        [int32]$Size="1000"
     )
     begin{
+        $US = $US
+        $Size = $Size
+        If ($Size) {continue}
+        If ($US) {continue}
         $SpeedResults = [System.Collections.ArrayList]@()
         Function downloadSpeed($strUploadUrl) {
             #Transform the server urls needed
             $topServerUrlSpilt = $strUploadUrl -split 'upload'
             $url = $topServerUrlSpilt[0] + "random" + "$($Size)" + "x" + "$($Size)" + ".jpg"
             #Now download some temp files and calculate speed
-            $downloadElaspedTime = (Measure-Command {$webpage1 = Invoke-WebRequest -Uri $url}).totalmilliseconds
-            $downSize = ($webpage1.rawcontent.length) / 1Mb
+            $downloadfile = {Invoke-WebRequest -Uri $url}
+            $downloadElaspedTime = (Measure-Command $downloadfile).totalmilliseconds
+            $downSize = (($downloadfile).rawcontent.length) / 1Mb
             $downloadSize = [Math]::Round($downSize, 2)
             $downloadTimeSec = $downloadElaspedTime * 0.001
             $downSpeed = ($downloadSize / $downloadTimeSec) * 8
@@ -28,6 +33,7 @@ function Invoke-Speedtest {
                     "Speed(Mb)"             = [string]$downloadSpeed
                     "Size(MiB)"             = [string]$downloadSize
                     "Download time(sec)"    = [string]$downloadTimeSec
+                    "Image Size"            = [string]"$Size x $Size"
                 }
             )
         }
@@ -40,10 +46,13 @@ function Invoke-Speedtest {
         $ClientLon = $SpeedtestConfig.settings.client.lon
         #Making another request to get the server list from the site.
         $SpeedtestServers = (Invoke-RestMethod -uri "http://www.speedtest.net/speedtest-servers.php" -WebSession $speedtest)
-        #$Serverlist is filtered to just US servers in the speedtest.net database.
-        $Serverlist = $SpeedtestServers.settings.servers.server | Where-Object {$PSItem.Country -eq "United States"}
+        #$Serverlist can be filtered to just US servers in the speedtest.net database.
+        $Serverlist = switch ($Worldwide){
+            $True   {$SpeedtestServers.settings.servers.server }
+            $False  {$SpeedtestServers.settings.servers.server | Where-Object {$PSItem.Country -eq "United States"}}
+        }
         #Below we calculate servers relative closeness to you by doing some math against latitude and longitude.
-        foreach($Server in $Serverlist) { 
+        foreach($Server in $Serverlist) {
             $R = 6371;
             [float]$dlat = ([float]$ClientLat - [float]$Server.lat) * 3.14 / 180;
             [float]$dlon = ([float]$ClientLon - [float]$Server.lon) * 3.14 / 180;
