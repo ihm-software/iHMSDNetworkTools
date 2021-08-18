@@ -1,4 +1,26 @@
-﻿function Invoke-SharepointUpload {
+﻿<#
+.SYNOPSIS
+uploads files to sharepoint
+
+.DESCRIPTION
+connects and uploads to sharepoint online anonymous shared document library 
+
+.PARAMETER AnonURL
+The anonymous share link from sharepoint. Script supports bit.ly shortened links
+
+.PARAMETER Filepath
+The file to upload
+
+.INPUTS
+Parameters above
+
+.OUTPUTS
+None
+
+.EXAMPLE
+Invoke-SharepointUpload -AnonUrl 'htttps://bit.ly/ihmnetwizupload' -Filepath d:\test\testfile.txt
+#>
+function Invoke-SharepointUpload {
     [cmdletbinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Mandatory=$true)][ValidatePattern({^https://*.$})]

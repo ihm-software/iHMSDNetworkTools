@@ -1,4 +1,26 @@
-﻿function Get-NetworkInformation {
+﻿<#
+.SYNOPSIS
+Gathers netwrork interface information
+
+.DESCRIPTION
+This function outputs a system object that contains all interface details for the client
+
+.PARAMETER InterfaceStatus
+Check for only up or down
+
+.PARAMETER AddressFamily
+TCPIP version 4 or 6, default is both
+
+.INPUTS
+Parameters above
+
+.OUTPUTS
+None
+
+.EXAMPLE
+Get-NetworkInformation -Interfacestatus Up
+#>
+function Get-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     [OutputType('System.Object[]')]
     param (
