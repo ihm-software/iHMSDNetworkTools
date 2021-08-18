@@ -14,15 +14,11 @@ The breakpoint line carried from error
 .PARAMETER Exit
 Used to terminate context after logging error
 
-.EXAMPLE
-Add-LogMessage -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
-
-Adds a log entry passing a Catch error's script line number & message
+.PARAMETER Message
+The description of the error you want to pass (use $_.Exception)
 
 .EXAMPLE
-Add-LogMessag -LogPath $LogPath -Message 'Custom Message'
-
-Adds a log entry for the custom message.  The line number caught in the log will be the line Add-LogMessag was called from which will get you close to where the source of your log message originated.
+Add-LogEntry -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
 #>
 Function Add-LogEntry {
     [CmdletBinding()]
