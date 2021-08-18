@@ -3,9 +3,9 @@
     param (
         [Parameter(Mandatory=$False)]
         [switch]$Worldwide,
-        [Parameter(Mandatory=$True)]
+        [Parameter(Mandatory=$False)]
         [int32]$TestCount="5",
-        [Parameter(Mandatory=$True)]
+        [Parameter(Mandatory=$False)]
         [int32]$Size="1000"
     )
     begin{
