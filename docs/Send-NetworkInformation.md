@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,9 @@ schema: 2.0.0
 # Send-NetworkInformation
 
 ## SYNOPSIS
-Network troubleshooting tool
+This script combines functions to check network information and speedtest results.
+Local file is named "\[DATETIME\]_\[COMPUTERNAME\].txt" and locationed in script root
+Then uploads text file to an anonymous sharepoint online document library.
 
 ## SYNTAX
 
@@ -17,8 +19,7 @@ Send-NetworkInformation [[-Filename] <String>] [[-AnonUrl] <String>] [<CommonPar
 ```
 
 ## DESCRIPTION
-This script checks network information and outputs this IP Address and Network Speedtest results to local text file.
-Then uploads text file to an anonymous sharepoint online document library.
+Cross Platform Network troubleshooting tool
 
 ## EXAMPLES
 
@@ -79,19 +80,5 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ### Text file where script was executed, default is "[DATETIME]_[COMPUTERNAME].txt"
 ### Text file on sharepoint online library
 ## NOTES
-Version:        1.0.0
-Author:         Jason Diaz
-Creation Date:  09/08/2021
-Purpose/Change: Network Info and Upload
-
-Version:        1.0.1
-Author:         Jason Diaz
-Creation Date:  09/08/2021
-Purpose/Change: Speedtest
-
-Version:        1.0.2
-Author:         Jason Diaz
-Creation Date:  09/08/2021
-Purpose/Change: Error traps, remove (most)debug lines, add line comments
 
 ## RELATED LINKS

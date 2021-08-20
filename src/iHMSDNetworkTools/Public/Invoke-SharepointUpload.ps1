@@ -1,24 +1,15 @@
 ﻿<#
 .SYNOPSIS
-uploads files to sharepoint
-
+    Connects and uploads a specified file to an anonymous sharepoint online shared document library.
+    Script supports bit.ly shortened links
 .DESCRIPTION
-connects and uploads to sharepoint online anonymous shared document library 
-
+    Cross-Platform Sharepoint API File Upload
 .PARAMETER AnonURL
-The anonymous share link from sharepoint. Script supports bit.ly shortened links
-
+    The anonymous share link from sharepoint. Script supports bit.ly shortened links
 .PARAMETER Filepath
-The file to upload
-
-.INPUTS
-Parameters above
-
-.OUTPUTS
-None
-
+    The file to upload
 .EXAMPLE
-Invoke-SharepointUpload -AnonUrl 'htttps://bit.ly/ihmnetwizupload' -Filepath d:\test\testfile.txt
+    Invoke-SharepointUpload -AnonUrl 'htttps://bit.ly/ihmnetwizupload' -Filepath d:\test\testfile.txt
 #>
 function Invoke-SharepointUpload {
     [cmdletbinding(DefaultParameterSetName = "Default")]

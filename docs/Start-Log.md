@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,9 @@ schema: 2.0.0
 # Start-Log
 
 ## SYNOPSIS
-Creates log file
+Creates log file with path and name that is passed.
+Checks if log file exists, and if it does deletes it and creates a new one.
+Once created, writes initial logging data
 
 ## SYNTAX
 
@@ -18,9 +20,7 @@ Start-Log [-LogPath] <Object> [-LogName] <Object> [-ScriptVersion] <Object> [-Wh
 ```
 
 ## DESCRIPTION
-Creates log file with path and name that is passed.
-Checks if log file exists, and if it does deletes it and creates a new one.
-Once created, writes initial logging data
+Cross-platform error logging module
 
 ## EXAMPLES
 
@@ -119,24 +119,8 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### Log file created
 ## NOTES
-Version:        1.0
-Author:         Luca Sturlese
-Creation Date:  10/05/12
-Purpose/Change: Initial function development
-
-Version:        1.1
-Author:         Luca Sturlese
-Creation Date:  19/05/12
-Purpose/Change: Added debug mode support
-
-Version:        1.2
-Author:         Jason Diaz
-Creation Date:  08/01/2020
-Purpose/Change: Renamed functions to approved verbs
 
 ## RELATED LINKS

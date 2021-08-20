@@ -1,27 +1,17 @@
 ﻿<#
 .SYNOPSIS
-measures download from speedtest.net
-
+    Connects to speedtest.net, downloads the list of servers, calculates the closest servers, and tests download.
+    User can select image size and number of servers to test with.
 .DESCRIPTION
-connects and downloads image files from servers to measure download speed
-
+    Cross-platform Speedtest.net testing
 .PARAMETER Worldwide
-Searchs all servers for closest locations. Default is USA only.
-
+    Searches all servers for the closest locations. Default is USA only.
 .PARAMETER TestCount
-The number of servers to connect to and repeat the test
-
+    The number of servers to connect to and repeat the test.
 .PARAMETER Size
-The pixel size^2 of the download image. Bigger = larger download. Default is 1000x1000
-
-.INPUTS
-Parameters above
-
-.OUTPUTS
-None
-
+    The pixel size^2 of the download image. Bigger = larger download. Default is 1000x1000
 .EXAMPLE
-Invoke-Speedtest -Testcount 1 -Size 500
+    Invoke-Speedtest -Testcount 1 -Size 500
 #>
 function Invoke-Speedtest {
     [CmdletBinding(DefaultParameterSetName = "Default")]

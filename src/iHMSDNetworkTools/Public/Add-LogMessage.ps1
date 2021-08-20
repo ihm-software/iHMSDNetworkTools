@@ -1,24 +1,19 @@
 ﻿<#
 .SYNOPSIS
-Allows for writing a log formatted with the date, line number, and message.
-
+    Allows for writing a log formatted with the date, line number, and message.
+    Used in conjunction with Start-Log and Stop-Log
 .DESCRIPTION
-Allows for writing a log formatted with the date, line number, and message.
-
+    Cross-Platform custom message logging
 .PARAMETER LogPath
-The Folder for starting log
-
+    The Folder for starting log
 .PARAMETER LineNumber
-The breakpoint line carried from error
-
+    The breakpoint line carried from error
 .PARAMETER Exit
-Used to terminate context after logging error
-
+    Used to terminate context after logging error
 .PARAMETER Message
-The description of the error you want to pass (use $_.Exception)
-
+    The description of the error you want to pass (use $_.Exception)
 .EXAMPLE
-Add-LogMessage -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
+    Add-LogMessage -LogPath $LogPath -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -Message $PSItem.Exception.Message
 #>
 Function Add-LogMessage {
     [CmdletBinding()]

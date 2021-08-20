@@ -1,31 +1,25 @@
 ﻿<#
 .SYNOPSIS
-Write closing logging data & exit
-
+    Writes finishing logging data to specified log and then exits the calling script
 .DESCRIPTION
-Writes finishing logging data to specified log and then exits the calling script
-
+    Cross-platform error logging module
 .PARAMETER LogPath
-Mandatory. Full path of the log file you want to write finishing data to. Example: C:\Windows\Temp\Test_Script.log
-
+    Mandatory. Full path of the log file you want to write finishing data to. Example: C:\Windows\Temp\Test_Script.log
 .PARAMETER NoExit
-Optional. If this is set to True, then the function will not exit the calling script, so that further execution can occur
-
-.INPUTS
-Parameters above
-
-.OUTPUTS
-None
-
+    Optional. If this is set to True, then the function will not exit the calling script, so that further execution can occur
 .EXAMPLE
-Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log"
-
+    Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log"
 .EXAMPLE
-Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log" -NoExit $True
+    Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log" -NoExit $True
 #>
 Function Stop-Log {
     [CmdletBinding(SupportsShouldProcess)]
-    Param ([Parameter(Mandatory = $true)]$LogPath, [Parameter(Mandatory = $false)]$NoExit)
+    Param (
+        [Parameter(Mandatory = $true)]
+        $LogPath, 
+        [Parameter(Mandatory = $false)]
+        $NoExit
+    )
     Process {
         Add-Content -Path $LogPath -Value ""
         Add-Content -Path $LogPath -Value "***************************************************************************************************"

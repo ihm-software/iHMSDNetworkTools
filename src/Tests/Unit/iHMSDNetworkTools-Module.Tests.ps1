@@ -2,7 +2,7 @@
     #-------------------------------------------------------------------------
     Set-Location -Path $PSScriptRoot
     #-------------------------------------------------------------------------
-    $ModuleName = 'iHM-SDNetworkTools'
+    $ModuleName = 'iHMSDNetworkTools'
     $PathToManifest = [System.IO.Path]::Combine('..', '..', $ModuleName, "$ModuleName.psd1")
     $PathToModule = [System.IO.Path]::Combine('..', '..', $ModuleName, "$ModuleName.psm1")
     #-------------------------------------------------------------------------
@@ -14,13 +14,13 @@ Describe 'Module Tests' -Tag Unit {
             { $script:manifestEval = Test-ModuleManifest -Path $PathToManifest } | Should -Not -Throw
             $? | Should -BeTrue
         } #manifestTest
-        It 'root module iHM-SDNetworkTools.psm1 should exist' {
+        It 'root module iHMSDNetworkTools.psm1 should exist' {
             $PathToModule | Should -Exist
             $? | Should -BeTrue
         } #psm1Exists
-        It 'manifest should contain iHM-SDNetworkTools.psm1' {
+        It 'manifest should contain iHMSDNetworkTools.psm1' {
             $PathToManifest |
-                Should -FileContentMatchExactly "iHM-SDNetworkTools.psm1"
+                Should -FileContentMatchExactly "iHMSDNetworkTools.psm1"
         } #validPSM1
         It 'should have a matching module name in the manifest' {
             $script:manifestEval.Name | Should -BeExactly $ModuleName

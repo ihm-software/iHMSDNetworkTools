@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,8 @@ schema: 2.0.0
 # Add-LogError
 
 ## SYNOPSIS
-Writes an error to a log file
+Add-LogError Writes a pipelined error to a new line at the end of the specified log file.
+Used in conjunction with Start-Log and Stop-Log
 
 ## SYNTAX
 
@@ -18,7 +19,7 @@ Add-LogError [-LogPath] <Object> [-ErrorDesc] <Object> [-ExitGracefully] <Boolea
 ```
 
 ## DESCRIPTION
-Writes the passed error to a new line at the end of the specified log file
+Cross-Platform error log to file
 
 ## EXAMPLES
 
@@ -100,10 +101,8 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### None
 ## NOTES
 
 ## RELATED LINKS

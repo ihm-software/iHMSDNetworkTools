@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -9,6 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 Allows for writing a log formatted with the date, line number, and message.
+Used in conjunction with Start-Log and Stop-Log
 
 ## SYNTAX
 
@@ -17,7 +18,7 @@ Add-LogMessage [[-LogPath] <Object>] [[-LineNumber] <Int32>] [[-Message] <Object
 ```
 
 ## DESCRIPTION
-Allows for writing a log formatted with the date, line number, and message.
+Cross-Platform custom message logging
 
 ## EXAMPLES
 

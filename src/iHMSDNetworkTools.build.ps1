@@ -90,6 +90,9 @@ Enter-Build {
 
     [version]$script:MinPesterVersion = '5.2.2'
     [version]$script:MaxPesterVersion = '5.99.99'
+    
+    [version]$script:MinPlatyPSVersion = '0.11.0'
+    [version]$script:MaxPlatyPSVersion = '0.13.99'
 } #Enter-Build
 
 # Define headers as separator, task path, synopsis, and location, e.g. for Ctrl+Click in VSCode.
@@ -231,7 +234,7 @@ Add-BuildTask Test {
 
     Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
     Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-    Import-Module -Name Pester -ErrorAction 'Stop'
+    Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
 
     $codeCovPath = "$script:ArtifactsPath\ccReport\"
     $testOutPutPath = "$script:ArtifactsPath\testOutput\"
@@ -307,7 +310,7 @@ Add-BuildTask DevCC {
     Write-Build White '      Generating code coverage report at root...'
     Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
     Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-    Import-Module -Name Pester -ErrorAction 'Stop'
+    Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
 
     $pesterConfiguration = [PesterConfiguration]::new()
     $pesterConfiguration.run.Path = 'Tests\Unit'
@@ -325,8 +328,8 @@ Add-BuildTask DevCC {
 Add-BuildTask CreateHelpStart {
     Write-Build White '      Performing all help related actions.'
 
-    Write-Build Gray '           Importing platyPS latest...'
-    Import-Module platyPS -Force -ErrorAction:SilentlyContinue
+    Write-Build Gray '           Importing platyPS version -lt v0.13.99 ...'
+    Import-Module -Name PlatyPS -MinimumVersion $script:MinPlatyPSVersion -MaximumVersion $script:MaxPlatyPSVersion -ErrorAction 'Stop'
     Write-Build Gray '           ...platyPS imported successfully.'
 } #CreateHelpStart
 
@@ -411,7 +414,7 @@ Add-BuildTask CreateMarkdownHelp -After CreateHelpStart {
 # Synopsis: Build the external xml help file from markdown help files with PlatyPS
 Add-BuildTask CreateExternalHelp -After CreateMarkdownHelp {
     Write-Build Gray '           Creating external xml help file...'
-    $null = New-ExternalHelp "$script:ArtifactsPath\docs" -OutputPath "$script:ArtifactsPath\en-US\" -Force
+    New-ExternalHelp "$script:ArtifactsPath\docs" -OutputPath "$script:ArtifactsPath\en-US\" -Force -Verbose
     Write-Build Gray '           ...External xml help file created!'
 } #CreateExternalHelp
 
@@ -421,7 +424,8 @@ Add-BuildTask CreateHelpComplete -After CreateExternalHelp {
 
 # Synopsis: Replace comment based help (CBH) with external help in all public functions for this project
 Add-BuildTask UpdateCBH -After AssetCopy {
-    $ExternalHelp = @"
+    $ExternalHelp = 
+@"
 <#
 .EXTERNALHELP $($ModuleName)-help.xml
 #>
@@ -496,7 +500,7 @@ Add-BuildTask InfraTest {
     if (Test-Path -Path $script:InfraTestsPath) {
         Write-Build White "      Importing desired Pester version. Min: $script:MinPesterVersion Max: $script:MaxPesterVersion"
         Remove-Module -Name Pester -Force -ErrorAction SilentlyContinue # there are instances where some containers have Pester already in the session
-        Import-Module -Name Pester -ErrorAction 'Stop'
+        Import-Module -Name Pester -MinimumVersion $script:MinPesterVersion -MaximumVersion $script:MaxPesterVersion -ErrorAction 'Stop'
 
         Write-Build White "      Performing Pester Infrastructure Tests in $($invokePesterParams.path)"
 

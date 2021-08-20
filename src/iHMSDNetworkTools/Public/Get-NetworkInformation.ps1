@@ -1,24 +1,14 @@
 ﻿<#
 .SYNOPSIS
-Gathers netwrork interface information
-
+    This function outputs a system object that contains all network interface details for the client.
 .DESCRIPTION
-This function outputs a system object that contains all interface details for the client
-
+    Cross-Platform ipconfig /all for pwsh
 .PARAMETER InterfaceStatus
-Check for only up or down
-
+    Check for only up or down
 .PARAMETER AddressFamily
-TCPIP version 4 or 6, default is both
-
-.INPUTS
-Parameters above
-
-.OUTPUTS
-None
-
+    TCPIP version 4 or 6, default is both
 .EXAMPLE
-Get-NetworkInformation -Interfacestatus Up
+    Get-NetworkInformation -Interfacestatus Up
 #>
 function Get-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]

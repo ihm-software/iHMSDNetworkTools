@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,8 @@ schema: 2.0.0
 # Invoke-SharepointUpload
 
 ## SYNOPSIS
-uploads files to sharepoint
+Connects and uploads a specified file to an anonymous sharepoint online shared document library.
+Script supports bit.ly shortened links
 
 ## SYNTAX
 
@@ -17,7 +18,7 @@ Invoke-SharepointUpload [-AnonURL] <Uri> [-Filepath] <String> [<CommonParameters
 ```
 
 ## DESCRIPTION
-connects and uploads to sharepoint online anonymous shared document library
+Cross-Platform Sharepoint API File Upload
 
 ## EXAMPLES
 
@@ -65,10 +66,8 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### None
 ## NOTES
 
 ## RELATED LINKS

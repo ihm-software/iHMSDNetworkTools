@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-NetworkInformation
 
 ## SYNOPSIS
-Gathers netwrork interface information
+This function outputs a system object that contains all network interface details for the client.
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Get-NetworkInformation [[-InterfaceStatus] <String>] [[-AddressFamily] <String>]
 ```
 
 ## DESCRIPTION
-This function outputs a system object that contains all interface details for the client
+Cross-Platform ipconfig /all for pwsh
 
 ## EXAMPLES
 
@@ -64,10 +64,9 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### None
+### System.Object[]
 ## NOTES
 
 ## RELATED LINKS

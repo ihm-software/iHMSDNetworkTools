@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,7 @@ schema: 2.0.0
 # Stop-Log
 
 ## SYNOPSIS
-Write closing logging data & exit
+Writes finishing logging data to specified log and then exits the calling script
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Stop-Log [-LogPath] <Object> [[-NoExit] <Object>] [-WhatIf] [-Confirm] [<CommonP
 ```
 
 ## DESCRIPTION
-Writes finishing logging data to specified log and then exits the calling script
+Cross-platform error logging module
 
 ## EXAMPLES
 
@@ -103,10 +103,8 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### None
 ## NOTES
 
 ## RELATED LINKS

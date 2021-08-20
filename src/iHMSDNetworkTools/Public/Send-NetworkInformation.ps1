@@ -1,53 +1,23 @@
 ﻿<#
-    .SYNOPSIS
-        Network troubleshooting tool
-
-    .DESCRIPTION
-        This script checks network information and outputs this IP Address and Network Speedtest results to local text file.
-        Then uploads text file to an anonymous sharepoint online document library.
-
-    .PARAMETER Filename
-        The name of the information file. By default, this is the current time and computer hostname.
-
-    .PARAMETER AnonURL
-        This is the shared link created by sharepoint online when sharing to "Everyone". This script does not support authenticated links.
-
-    .PARAMETER US
-        Switch to specify US speedtest servers only
-
-    .PARAMETER TestCount
-        Switch to specify how many speedtest servers to test
-
-    .PARAMETER Size
-        Size in Pixels^2 for the download test image (ex $size = "2000" is a 2000x2000 image)
-
-    .OUTPUTS
-        Text file where script was executed, default is "[DATETIME]_[COMPUTERNAME].txt"
-        Text file on sharepoint online library
-
-    .NOTES
-        Version:        1.0.0
-        Author:         Jason Diaz
-        Creation Date:  09/08/2021
-        Purpose/Change: Network Info and Upload
-
-        Version:        1.0.1
-        Author:         Jason Diaz
-        Creation Date:  09/08/2021
-        Purpose/Change: Speedtest
-
-        Version:        1.0.2
-        Author:         Jason Diaz
-        Creation Date:  09/08/2021
-        Purpose/Change: Error traps, remove (most)debug lines, add line comments
-
-    .EXAMPLE
-        Upload network information to https://bit.ly/ihmnetwizupload
-        Send-NetworkInfo -AnonURL "https://bit.ly/ihmnetwizupload"
-
-    .EXAMPLE
-        Upload network information with custom file name to https://bit.ly/ihmnetwizupload
-        Send-NetworkInfo -Filename "Myfile.txt" -AnonURL "https://bit.ly/ihmnetwizupload"
+.SYNOPSIS
+    This script combines functions to check network information and speedtest results.
+    Local file is named "[DATETIME]_[COMPUTERNAME].txt" and locationed in script root
+    Then uploads text file to an anonymous sharepoint online document library.
+.DESCRIPTION
+    Cross Platform Network troubleshooting tool
+.PARAMETER Filename
+    The name of the information file. By default, this is the current time and computer hostname.
+.PARAMETER AnonURL
+    This is the shared link created by sharepoint online when sharing to "Everyone". This script does not support authenticated links.
+.OUTPUTS
+    Text file where script was executed, default is "[DATETIME]_[COMPUTERNAME].txt"
+    Text file on sharepoint online library
+.EXAMPLE
+    Upload network information to https://bit.ly/ihmnetwizupload
+    Send-NetworkInfo -AnonURL "https://bit.ly/ihmnetwizupload"
+.EXAMPLE
+    Upload network information with custom file name to https://bit.ly/ihmnetwizupload
+    Send-NetworkInfo -Filename "Myfile.txt" -AnonURL "https://bit.ly/ihmnetwizupload"
 #>
 function Send-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]

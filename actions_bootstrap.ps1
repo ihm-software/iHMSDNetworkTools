@@ -12,19 +12,23 @@ $modulesToInstall = [System.Collections.ArrayList]::new()
 # https://github.com/pester/Pester
 $null = $modulesToInstall.Add(([PSCustomObject]@{
             ModuleName    = 'Pester'
+            ModuleVersion = '5.2.2'
         }))
 # https://github.com/nightroman/Invoke-Build
 $null = $modulesToInstall.Add(([PSCustomObject]@{
             ModuleName    = 'InvokeBuild'
+            ModuleVersion = '5.8.0'
         }))
 # https://github.com/PowerShell/PSScriptAnalyzer
 $null = $modulesToInstall.Add(([PSCustomObject]@{
             ModuleName    = 'PSScriptAnalyzer'
+            ModuleVersion = '1.19.1'
         }))
 # https://github.com/PowerShell/platyPS
 # older version used due to: https://github.com/PowerShell/platyPS/issues/457
 $null = $modulesToInstall.Add(([PSCustomObject]@{
             ModuleName    = 'platyPS'
+            ModuleVersion = '0.12.0'
         }))
 
 
@@ -33,6 +37,7 @@ $null = $modulesToInstall.Add(([PSCustomObject]@{
 foreach ($module in $modulesToInstall) {
     $installSplat = @{
         Name               = $module.ModuleName
+        RequiredVersion    = $module.ModuleVersion
         Repository         = 'PSGallery'
         SkipPublisherCheck = $true
         Force              = $true

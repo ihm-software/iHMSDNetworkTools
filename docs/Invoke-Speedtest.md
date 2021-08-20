@@ -1,6 +1,6 @@
 ---
-external help file: iHM-SDNetworkTools-help.xml
-Module Name: iHM-SDNetworkTools
+external help file: iHMSDNetworkTools-help.xml
+Module Name: iHMSDNetworkTools
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,8 @@ schema: 2.0.0
 # Invoke-Speedtest
 
 ## SYNOPSIS
-measures download from speedtest.net
+Connects to speedtest.net, downloads the list of servers, calculates the closest servers, and tests download.
+User can select image size and number of servers to test with.
 
 ## SYNTAX
 
@@ -17,7 +18,7 @@ Invoke-Speedtest [-Worldwide] [[-TestCount] <Int32>] [[-Size] <Int32>] [<CommonP
 ```
 
 ## DESCRIPTION
-connects and downloads image files from servers to measure download speed
+Cross-platform Speedtest.net testing
 
 ## EXAMPLES
 
@@ -29,7 +30,7 @@ Invoke-Speedtest -Testcount 1 -Size 500
 ## PARAMETERS
 
 ### -Worldwide
-Searchs all servers for closest locations.
+Searches all servers for the closest locations.
 Default is USA only.
 
 ```yaml
@@ -45,7 +46,7 @@ Accept wildcard characters: False
 ```
 
 ### -TestCount
-The number of servers to connect to and repeat the test
+The number of servers to connect to and repeat the test.
 
 ```yaml
 Type: Int32
@@ -82,10 +83,8 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
-### Parameters above
 ## OUTPUTS
 
-### None
 ## NOTES
 
 ## RELATED LINKS
