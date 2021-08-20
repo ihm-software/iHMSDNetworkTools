@@ -31,7 +31,7 @@ function Invoke-Speedtest {
             $topServerUrlSpilt = $strUploadUrl -split 'upload'
             $url = $topServerUrlSpilt[0] + "random" + "$($Filesize)" + ".jpg"
             #Now download some temp files and calculate speed
-            $downloadElaspedTime = (Measure-Command {$downloadfile = Invoke-WebRequest -Uri $url}).totalmilliseconds
+            $downloadElaspedTime = (Measure-Command {$script:downloadfile = Invoke-WebRequest -Uri $url}).totalmilliseconds
             $downSize = (($downloadfile).rawcontent.length) / 1Mb
             $downloadSize = [Math]::Round($downSize, 2)
             $downloadTimeSec = $downloadElaspedTime * 0.001
@@ -47,6 +47,7 @@ function Invoke-Speedtest {
                     "Image Size"         = [string]$Filesize
                 }
             )
+            Remove-Variable -Name Downloadfile -Scope Script
         }
     }
     process {
