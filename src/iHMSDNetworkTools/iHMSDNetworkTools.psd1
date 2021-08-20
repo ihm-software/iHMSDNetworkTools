@@ -57,7 +57,7 @@
     # RequiredAssemblies = @()
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-    # ScriptsToProcess = @()
+    ScriptsToProcess = @(".\Private\Import-LogFunctions.ps1")
 
     # Type files (.ps1xml) to be loaded when importing this module
     # TypesToProcess = @()
@@ -69,7 +69,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = @('Add-LogMessage','Add-LogError','Get-NetworkInformation','Invoke-SharepointUpload','Invoke-Speedtest','Send-NetworkInformation','Start-Log','Stop-Log')
+    FunctionsToExport = @('Get-NetworkInformation','Invoke-SharepointUpload','Invoke-Speedtest','Send-NetworkInformation')
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport   = @()
@@ -78,7 +78,7 @@
     VariablesToExport = @()
 
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    #AliasesToExport   = 'ifconfig'
+    AliasesToExport   = 'ifconfig'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()

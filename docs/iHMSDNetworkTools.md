@@ -11,14 +11,6 @@ Locale: en-US
 This module gathers network information and sends to the a shared network folder for troubleshooting.
 
 ## iHMSDNetworkTools Cmdlets
-### [Add-LogError](Add-LogError.md)
-Add-LogError Writes a pipelined error to a new line at the end of the specified log file.
-Used in conjunction with Start-Log and Stop-Log
-
-### [Add-LogMessage](Add-LogMessage.md)
-Allows for writing a log formatted with the date, line number, and message.
-Used in conjunction with Start-Log and Stop-Log
-
 ### [Get-NetworkInformation](Get-NetworkInformation.md)
 This function outputs a system object that contains all network interface details for the client.
 
@@ -34,12 +26,5 @@ User can select image size and number of servers to test with.
 This script combines functions to check network information and speedtest results.
 Local file is named "[DATETIME]_[COMPUTERNAME].txt" and locationed in script root
 Then uploads text file to an anonymous sharepoint online document library.
-
-### [Start-Log](Start-Log.md)
-Creates log file with path and name that is passed. Checks if log file exists, and if it does deletes it and creates a new one.
-Once created, writes initial logging data
-
-### [Stop-Log](Stop-Log.md)
-Writes finishing logging data to specified log and then exits the calling script
 
 

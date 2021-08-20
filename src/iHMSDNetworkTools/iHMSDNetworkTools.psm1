@@ -1,8 +1,3 @@
-# this psm1 is for local testing and development use only
-
-# dot source the parent import for local development variables
-. $PSScriptRoot\Imports.ps1
-
 # discover all ps1 file(s) in Public and Private paths
 
 $itemSplat = @{
@@ -31,4 +26,4 @@ foreach ($file in @($public + $private)) {
 }
 
 # export all public functions
-Export-ModuleMember -Function $public.Basename -Alias @('ifconfig','get-ipconfig')
+#Export-ModuleMember -Function $public.Basename -Alias @('ifconfig','get-ipconfig')
