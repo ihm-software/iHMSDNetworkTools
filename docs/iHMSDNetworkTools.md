@@ -2,7 +2,7 @@
 Module Name: iHMSDNetworkTools
 Module Guid: 92f444eb-b0f0-4597-85bc-05a9d89a2021
 Download Help Link: NA
-Help Version: 0.0.1
+Help Version: 0.0.3
 Locale: en-US
 ---
 

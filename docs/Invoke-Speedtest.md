@@ -72,7 +72,7 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: 1000
+Default value: 2000
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

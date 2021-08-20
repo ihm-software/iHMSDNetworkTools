@@ -398,17 +398,17 @@ function Get-NetworkInformation {
         return $PSObjectCollection
     }
 }
-New-Alias -Name ifconfig -Value Get-NetworkInformation
 function Invoke-SharepointUpload {
     [cmdletbinding(DefaultParameterSetName = "Default")]
     param (
-        [Parameter(Mandatory=$true)][ValidatePattern({^https://*.$})]
+        [Parameter(Mandatory=$true)][ValidatePattern({^https://*.})]
         [system.uri]$AnonURL,
         [Parameter(Mandatory=$true)]
         [string]$Filepath
     )
     begin {
         #Anonymous sharepoint links are 302 redirects, let's check
+        Add-Type -AssemblyName System.Web
         [system.uri]$302CheckUri = [system.uri]$AnonURL
         do {
             If ($302CheckUri -match "^http"){
@@ -428,9 +428,9 @@ function Invoke-SharepointUpload {
                     default {
                         #If we get anything except a 200, build a hashtable of header values transformed into sharepoint uri's
                         if ($302Check.headers.location -match "^http"){
-                            #below removes urlencode
                             [system.uri]$redirect = $($302Check.headers.location)
-                            Do {$redirect = [System.Web.HttpUtility]::UrlDecode($redirect)}
+                            #below removes urlencode
+                            Do {$redirect = [System.Net.WebUtility]::UrlDecode($redirect)}
                             While ($redirect -match '%')
                             #Now build uri paths
                             $SPOUrls = [pscustomobject]@{
@@ -506,6 +506,7 @@ function Invoke-Speedtest {
                     "Image Size"         = [string]$Filesize
                 }
             )
+            Remove-Variable -Name Downloadfile -Scope Script
         }
     }
     process {
@@ -548,16 +549,16 @@ function Send-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter a custom name for the output file.")]
-        [ValidateNotNullOrEmpty()]
-        [String]$Filename = "$(Get-Date -Format yyyy-M-d_hh.mm.tt)_$([Environment]::MachineName).txt" ,
+        [String]$Filename = "$([Environment]::MachineName).txt" ,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter the shared upload link")]
         [ValidateNotNullOrEmpty()]
         [String]$AnonUrl = 'https://bit.ly/ihmnetwizupload'
     )
     begin {
         $Now = Get-Date -Format yyyy-M-d_hh.mm.tt
+        If ($null -ne $Now){$Filename = "$($Now)_$([Environment]::MachineName).txt"}
         $ScriptName = "Send-NetworkInformation"
-        $ScriptVersion = "1.0.2"
+        $ScriptVersion = "0.0.2"
         $Global:ErrorActionPreference = "Stop"
         #Initiate Functions
         
@@ -587,15 +588,16 @@ function Send-NetworkInformation {
             Add-LogMessage -LogPath $LogFile -Message "[NFO]    Complete"
         }
         catch{
-            Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]: $($PSItem.Exception.Message)" -ExitGracefully $false
+            Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]:   $($PSItem.Exception.Message)" -ExitGracefully $false
         }
     }
     end{
         try{
+            Add-LogMessage -LogPath $LogFile -Message "[NFO]    Uploading results to $AnonURL"
             Invoke-SharepointUpload -AnonURL $AnonURL -Filepath $Filepath
         }
         catch{
-            Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]: $($PSItem.Exception.Message)" -ExitGracefully $false
+            Add-LogError -LogPath $LogFile -LineNumber $PSItem.InvocationInfo.ScriptLineNumber -ErrorDesc "[ERR]:   $($PSItem.Exception.Message)" -ExitGracefully $false
         }
         finally{
             . $filepath
@@ -605,11 +607,12 @@ function Send-NetworkInformation {
 }
 
 Send-NetworkInformation
+
 # SIG # Begin signature block
 # MIISHwYJKoZIhvcNAQcCoIISEDCCEgwCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUQGpG4n9EAN56zcIr4fxEo7Bd
-# 2PSggg5rMIIGsDCCBJigAwIBAgIQCK1AsmDSnEyfXs2pvZOu2TANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUe6Ti+f3ly3BCZUhYTdntdlnU
+# oEWggg5rMIIGsDCCBJigAwIBAgIQCK1AsmDSnEyfXs2pvZOu2TANBgkqhkiG9w0B
 # AQwFADBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
 # VQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBUcnVzdGVk
 # IFJvb3QgRzQwHhcNMjEwNDI5MDAwMDAwWhcNMzYwNDI4MjM1OTU5WjBpMQswCQYD
@@ -691,16 +694,16 @@ Send-NetworkInformation
 # ZyBSU0E0MDk2IFNIQTM4NCAyMDIxIENBMQIQC4uUnYEEkqZXl45C8AoenDAJBgUr
 # DgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMx
 # DAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkq
-# hkiG9w0BCQQxFgQU2ArQNWr9nVq/E3ICVSBGNuLYFLswDQYJKoZIhvcNAQEBBQAE
-# ggIASuzGses6A1VRH8l7uJ/+uEOeANc3pKDKIwNFN95uhg2ZbJyjiGy7nWq+oV4+
-# PfISs8YTg/YJxgAHk2W3rrKP3MvapILjdPCjxS/2WrQrLpUBvm6c1j6IgmX+AY8X
-# p0+439NtfbXrs2O1zs+/9P7gkiqFzJjVi92f4ww3soZ1MV4T8JfnyFcmFmlHIw9z
-# m5lNvAEEtXVfYTFqGpMMV7xeMqkIGFwVbjsNoBFQ4qjRh2N1IDcxQwfJ3LdnzokX
-# Ok9DHUPiZVsfg8IidmaFWrssice28/vCEMS2j/6rM10GMQbQuTqQzUq1O2t5cpC2
-# T0ZutnKRCWvlcGb986ys9/+Gs8hu4QKEQcGA0JDY24SRZXzrThXebRq7J99nGiQ3
-# 3Ih9nzuVNnGqt9iKrzwJm9gYnT5uEoSqrhSIUJGRpY8jlXrSijvS4neTdZpWHE5v
-# 5wsDktybDZZ9HP0M75OyTia/0RrPDnNtcZyzby85jOWCmfbEF94oIvp5urWAmug0
-# F5s7QgSD4fgZcTJIlcuDvf4Rw+A36G8saLfixHSLZqJ2ANpnTq86MU+tSSJnVdNQ
-# fF+wu+fYMXi5bAp/ce4pNQbB3Z/wr2PysB602auxn0f0RkITLyj+x8BHm+x6NUyq
-# Ozxxr9m6cxpUvtPAZZ/rKRknIWM64nlPTVDSJ9bchqbiCfM=
+# hkiG9w0BCQQxFgQUL11MPzWDOLUjSNQfglR1QoQ5UsYwDQYJKoZIhvcNAQEBBQAE
+# ggIApUmthzgIcZ8a4w5mYBzPk2gjLzEZ0cLmmbxB33o7X38qNfX4xMK3xAYddfkt
+# baGro3Sb1sK3Y6KlHjgo1ulzMNPSqKvbjvj3JPxE1DvLvZs30R4Z0sc7cG4QlAzw
+# FNhFrDPrkb4QPizBZW6gjTzbJ4V8YQ4VXbYrRiOwOM1qOkmsgECeRBz359qPcpyI
+# 9gGvaxEJfM50Tgd1pFlWXZJLjshsr+aUBwJmUSrj+a0d5jE8wFVfeSaUyIkkI2t9
+# sYjRoSEz0dJwHoV110AKCq1nhpRM1YVime1i4f6MV1PeVYQBUJLdz+BNVKFHCd5o
+# 9FO8MdXVfapRmWrLnY1dswHCG8MJwBwjyDUGCFwq7awydXWY0arB1VRhICsaGTPB
+# UBBsEcPasb4gVxvRDM1jfo1t6sf6iCJjEGGS6dg/rKgWy2XJUSJQqd+M3YQTm9ok
+# V3sRxRW5F4KntGFeJCTYBpx2OVp8woB/MqjNMkAilaESLqM2Ks/5ct9E3fzFQqIv
+# 3QXs7pQolHISH1RUOsMOTYK56aAPmXiACvckZbsBpYpaXNBJDiADon+ZYjU6K4ab
+# t56k/VyvFUvNzaWG0TVo9QOAtulqVjnRtQIGtZ3DGN6BPf8MUfBzCqtO/SmAkULC
+# Zlc1zGeufjcMTaRDYADr5Z1GK0eJBD9lIdIFtr8zyX5Bg7Q=
 # SIG # End signature block

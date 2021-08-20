@@ -48,7 +48,7 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: "$($Now)_$([Environment]::MachineName).txt"
+Default value: "$([Environment]::MachineName).txt"
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
