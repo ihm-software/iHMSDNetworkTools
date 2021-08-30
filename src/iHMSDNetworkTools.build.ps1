@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     An Invoke-Build Build file.
 .DESCRIPTION
@@ -425,7 +425,7 @@ Add-BuildTask CreateHelpComplete -After CreateExternalHelp {
 # Synopsis: Replace comment based help (CBH) with external help in all public functions for this project
 Add-BuildTask UpdateCBH -After AssetCopy {
     $ExternalHelp = 
-@"
+    @"
 <#
 .EXTERNALHELP $($ModuleName)-help.xml
 #>

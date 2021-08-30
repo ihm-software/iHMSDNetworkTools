@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Connects to speedtest.net, downloads the list of servers, calculates the closest servers, and tests download.
     User can select image size and number of servers to test with.
@@ -40,11 +40,11 @@ function Invoke-Speedtest {
             #Hashtable containing results
             $SpeedResults.add(
                 [PSCustomObject]@{
-                    "Test Site"             = [string]$topServerUrlSpilt.split(":8080/speedtest/")[0]
-                    "Speed(Mbps)"           = [string]$downloadSpeed
-                    "Download Size(MB)"     = [string]$downloadSize
-                    "Download Time(sec)"    = [string]$downloadTimeSec
-                    "Image Size"            = [string]$Filesize
+                    "Test Site"          = [string]$topServerUrlSpilt.split(":8080/speedtest/")[0]
+                    "Speed(Mbps)"        = [string]$downloadSpeed
+                    "Download Size(MB)"  = [string]$downloadSize
+                    "Download Time(sec)" = [string]$downloadTimeSec
+                    "Image Size"         = [string]$Filesize
                 }
             )
             Remove-Variable -Name Downloadfile -Scope Script
