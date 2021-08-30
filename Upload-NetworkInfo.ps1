@@ -486,28 +486,28 @@ function Invoke-Speedtest {
         $SpeedResults = [System.Collections.ArrayList]@()
         $Filesize = "$($Size)x$($Size)"
         Function downloadSpeed($strUploadUrl) {
-            #Transform the server urls needed
-            $topServerUrlSpilt = $strUploadUrl -split 'upload'
-            $url = $topServerUrlSpilt[0] + "random" + "$($Filesize)" + ".jpg"
-            #Now download some temp files and calculate speed
-            $downloadElaspedTime = (Measure-Command {$script:downloadfile = Invoke-WebRequest -Uri $url}).totalmilliseconds
-            $downSize = (($downloadfile).rawcontent.length) / 1Mb
-            $downloadSize = [Math]::Round($downSize, 2)
-            $downloadTimeSec = $downloadElaspedTime * 0.001
-            $downSpeed = ($downloadSize / $downloadTimeSec) * 8
-            $downloadSpeed = [Math]::Round($downSpeed, 2)
-            #Hashtable containing results
-            $SpeedResults.add(
-                [PSCustomObject]@{
-                  "Test Site"           = [string]$topServerUrlSpilt.split(":8080/speedtest/")[0]
-                  "Speed(Mbps)"         = [string]$downloadSpeed
-                  "Download Size(MB)"   = [string]$downloadSize
-                  "Download Time(sec)"  = [string]$downloadTimeSec
-                  "Image Size"          = [string]$Filesize
-                }
-            )
-            Remove-Variable -Name Downloadfile -Scope Script
-        }
+          #Transform the server urls needed
+          $topServerUrlSpilt = $strUploadUrl -split 'upload'
+          $url = $topServerUrlSpilt[0] + "random" + "$($Filesize)" + ".jpg"
+          #Now download some temp files and calculate speed
+          $downloadElaspedTime = (Measure-Command {$script:downloadfile = Invoke-WebRequest -Uri $url}).totalmilliseconds
+          $downSize = (($downloadfile).rawcontent.length) / 1Mb
+          $downloadSize = [Math]::Round($downSize, 2)
+          $downloadTimeSec = $downloadElaspedTime * 0.001
+          $downSpeed = ($downloadSize / $downloadTimeSec) * 8
+          $downloadSpeed = [Math]::Round($downSpeed, 2)
+          #Hashtable containing results
+          $SpeedResults.add(
+              [PSCustomObject]@{
+                  "Test Site"             = [string]$topServerUrlSpilt.split(":8080/speedtest/")[0]
+                  "Speed(Mbps)"           = [string]$downloadSpeed
+                  "Download Size(MB)"     = [string]$downloadSize
+                  "Download Time(sec)"    = [string]$downloadTimeSec
+                  "Image Size"            = [string]$Filesize
+              }
+          )
+          Remove-Variable -Name Downloadfile -Scope Script
+      }
     }
     process {
         #Invoke a call to speedtest's config servers
