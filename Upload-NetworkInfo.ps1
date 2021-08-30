@@ -499,11 +499,11 @@ function Invoke-Speedtest {
             #Hashtable containing results
             $SpeedResults.add(
                 [PSCustomObject]@{
-                    "Test Site"          = [string]$url.split(":8080/speedtest/")[0]
-                    "Speed(Mb)"          = [string]$downloadSpeed
-                    "Size(MiB)"          = [string]$downloadSize
-                    "Download time(sec)" = [string]$downloadTimeSec
-                    "Image Size"         = [string]$Filesize
+                  "Test Site"           = [string]$topServerUrlSpilt.split(":8080/speedtest/")[0]
+                  "Speed(Mbps)"         = [string]$downloadSpeed
+                  "Download Size(MB)"   = [string]$downloadSize
+                  "Download Time(sec)"  = [string]$downloadTimeSec
+                  "Image Size"          = [string]$Filesize
                 }
             )
             Remove-Variable -Name Downloadfile -Scope Script
@@ -549,7 +549,7 @@ function Send-NetworkInformation {
     [CmdletBinding(DefaultParameterSetName = "Default")]
     param (
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter a custom name for the output file.")]
-        [String]$Filename = "$([Environment]::MachineName).txt" ,
+        [String]$Filename,
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, ValueFromPipeline = $True, HelpMessage = "Please enter the shared upload link")]
         [ValidateNotNullOrEmpty()]
         [String]$AnonUrl = 'https://bit.ly/ihmnetwizupload'
