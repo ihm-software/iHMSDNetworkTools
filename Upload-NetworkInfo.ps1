@@ -480,7 +480,7 @@ function Invoke-Speedtest {
         [Parameter(Mandatory=$False)]
         [int32]$TestCount="5",
         [Parameter(Mandatory=$False)]
-        [int32]$Size="2000"
+        [int32]$Size="200000"
     )
     begin{
         $SpeedResults = [System.Collections.ArrayList]@()
